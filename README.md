@@ -7,7 +7,7 @@ $ git clone https://github.com/mathis2001/WebHackUrls
 
 $ cd WebHackUrls
 
-$ python3 WebHackUrls
+$ python3 webhackurls.py
 
 Usage:
 
