@@ -12,11 +12,17 @@ Usage:
 ./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-o output]
 
 options:
+
   -h, --help  show this help message and exit
+  
   -d          target domain (exp: target.com)
+  
   -k          search for a specific extension or keyword (js, xml, json, pdf... or admin, login, dashboard...)
+  
   -l          limit (number of links you want)
+  
   -o          Output file name
+  
   
   ![image](https://user-images.githubusercontent.com/40497633/170048245-33a3c4f8-8e22-4e1b-a952-51c4b09052e5.png)
 
