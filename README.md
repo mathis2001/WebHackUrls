@@ -4,7 +4,9 @@ Python OSINT tool for urls recon thanks to the waybackmachine.
 Install:
 
 $ git clone https://github.com/mathis2001/WebHackUrls
+
 $ cd WebHackUrls
+
 $ python3 WebHackUrls
 
 Usage:
