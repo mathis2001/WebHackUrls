@@ -13,6 +13,11 @@ Usage:
 
 ./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-o output]
 
+Can be use with other tools
+
+![tes](https://user-images.githubusercontent.com/40497633/170056609-1588032a-9517-4e34-b673-e20425bbe7fe.png)
+
+
 options:
 
   -h, --help  show this help message and exit
