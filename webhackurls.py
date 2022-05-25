@@ -63,6 +63,11 @@ def main():
 		log = open(myargs['-o'], "w")
 		log.write(rq.text)
 		log.close()
-main()
+try:
+        main()
+except Exception as e:
+        print(e)
+except KeyboardInterrupt:
+        print(bcolors.FAIL+"[!] "+bcolors.RESET+"Script canceled.")
 
 
