@@ -19,6 +19,7 @@ class bcolors:
 	WARNING = '\033[93m'
 	FAIL = '\033[91m'
 	RESET = '\033[0m'
+	INFO = '\033[94m'
 
 def parser():
 	parser = argparse.ArgumentParser()
@@ -46,8 +47,8 @@ def main():
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.FAIL+"[!] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output]")
-		print(bcolors.OK+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
+		print(bcolors.INFO+"[*] "+bcolors.INFO+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output]")
+		print(bcolors.INFO+"[*] "+bcolors.INFO+"help: ./webhackurls -h")
 	else:
 		if '-d' in myargs:
 			url = url+"&url="+myargs['-d']+"/"
