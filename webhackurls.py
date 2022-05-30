@@ -47,8 +47,8 @@ def main():
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.INFO+"[*] "+bcolors.INFO+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output]")
-		print(bcolors.INFO+"[*] "+bcolors.INFO+"help: ./webhackurls -h")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output]")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
 	else:
 		if '-d' in myargs:
 			url = url+"&url="+myargs['-d']+"/"
