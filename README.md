@@ -1,7 +1,7 @@
 # WebHackUrls
 Python OSINT tool for urls recon thanks to the waybackmachine.
 
-Install:
+<h1>Install:</h1>
 
 $ git clone https://github.com/mathis2001/WebHackUrls
 
@@ -9,7 +9,7 @@ $ cd WebHackUrls
 
 $ python3 webhackurls.py
 
-Usage:
+<h1>Usage:</h1>
 
 ./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-o output]
 
@@ -18,7 +18,7 @@ Can be use with other tools for more efficient results
 ![tes](https://user-images.githubusercontent.com/40497633/170056609-1588032a-9517-4e34-b673-e20425bbe7fe.png)
 
 
-options:
+<h1>options:</h1>
 
   -h, --help  show this help message and exit
   
