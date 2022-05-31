@@ -1,25 +1,25 @@
 # WebHackUrls
 Python OSINT tool for urls recon thanks to the waybackmachine.
 
-<h1>Install:</h1>
-
+## Install:</h1>
+```bash
 $ git clone https://github.com/mathis2001/WebHackUrls
 
 $ cd WebHackUrls
 
 $ python3 webhackurls.py
-
-<h1>Usage:</h1>
-
+```
+## Usage:
+```bash
 ./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-o output]
-
+```
 Can be use with other tools for more efficient results
 
 ![tes](https://user-images.githubusercontent.com/40497633/170056609-1588032a-9517-4e34-b673-e20425bbe7fe.png)
 
 
-<h1>options:</h1>
-
+## options:
+```bash
   -h, --help  show this help message and exit
   
   -d          target domain (exp: target.com)
@@ -29,7 +29,7 @@ Can be use with other tools for more efficient results
   -l          limit (number of links you want)
   
   -o          Output file name
-  
+```
   
   ![image](https://user-images.githubusercontent.com/40497633/170048245-33a3c4f8-8e22-4e1b-a952-51c4b09052e5.png)
 
