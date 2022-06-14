@@ -52,11 +52,12 @@ def main():
 	else:
 		if '-d' in myargs:
 			url = url+"&url="+myargs['-d']+"/"
-		if '-k' in myargs:
-			url=url+"&filter=urlkey:.*"+myargs['-k']
-		if '-l' in myargs:
-			url=url+"&limit="+myargs['-l']
-
+			if '-k' in myargs:
+				url=url+"&filter=urlkey:.*"+myargs['-k']
+			if '-l' in myargs:
+				url=url+"&limit="+myargs['-l']
+		else:
+			print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
 	rq=requests.get(url)
 	print(rq.text)
 	
