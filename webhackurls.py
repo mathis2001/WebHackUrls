@@ -29,6 +29,7 @@ parser.add_argument("-d", "--domain", help="target domain (exp: target.com)", ty
 parser.add_argument("-k", "--keyword", help="search for a specific extension or keyword (js, xml, json, pdf... or admin, login, dashboard...)", type=str)
 parser.add_argument("-l", "--limit", help="limit (number of links you want)", type=str)
 parser.add_argument("-s", "--screenshot", help="take screenshot of each url", action="store_true")
+parser.add_argument("-r", "--rate-limit", help="time between two screens", type=float)
 parser.add_argument("-o", "--output", help="Output file name", type=str)
 args = parser.parse_args()
 	
@@ -43,12 +44,15 @@ def screenshot(urls):
 	i=0
 	print(bcolors.OK+"[+] "+bcolors.RESET+"Screening urls...")
 	for url in lines:
-        	i=i+1
-        	cut=url.split('/')
-        	driver.get(url)
-        	sleep(1)
-        	driver.save_screenshot("screens/screen-"+str(cut[3])+"-"+str(i)+".png")
-        	print('.')
+		i=i+1
+		cut=url.split('/')
+		driver.get(url)
+		if args.rate_limit:
+			sleep(args.rate_limit)
+		else:
+			sleep(1)
+		driver.save_screenshot("screens/screen-"+str(cut[3])+"-"+str(i)+".png")
+		print('.')
 	driver.quit()
 	print(bcolors.OK+"[+] "+bcolors.RESET+"done!")
 
