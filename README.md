@@ -16,7 +16,7 @@ $ python3 webhackurls.py
 ```
 ## Usage:
 ```bash
-./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-o output]
+./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-r] [-o output]
 ```
 Can be use with other tools for more efficient results
 
@@ -34,6 +34,8 @@ Can be use with other tools for more efficient results
   -l          limit (number of links you want)
   
   -s          take screenshot of each url found
+  
+  -r          delay between two screenshots
   
   -o          Output file name
 ```
