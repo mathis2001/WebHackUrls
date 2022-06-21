@@ -1,7 +1,12 @@
 # WebHackUrls
 Python OSINT tool for urls recon thanks to the waybackmachine.
 
-## Install:</h1>
+## Prerequisites:
+
+- requests
+- selenium
+
+## Install:
 ```bash
 $ git clone https://github.com/mathis2001/WebHackUrls
 
@@ -11,7 +16,7 @@ $ python3 webhackurls.py
 ```
 ## Usage:
 ```bash
-./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-o output]
+./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-o output]
 ```
 Can be use with other tools for more efficient results
 
@@ -27,6 +32,8 @@ Can be use with other tools for more efficient results
   -k          search for a specific extension or keyword (js, xml, json, pdf... or admin, login, dashboard...)
   
   -l          limit (number of links you want)
+  
+  -s          take screenshot of each url found
   
   -o          Output file name
 ```
