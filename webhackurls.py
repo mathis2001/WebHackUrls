@@ -6,6 +6,7 @@ import argparse
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from time import sleep
+import re
 
 print('''
 
@@ -31,6 +32,7 @@ parser.add_argument("-l", "--limit", help="limit (number of links you want)", ty
 parser.add_argument("-s", "--screenshot", help="take screenshot of each url", action="store_true")
 parser.add_argument("-r", "--rate-limit", help="time between two screens", type=float)
 parser.add_argument("-o", "--output", help="Output file name", type=str)
+parser.add_argument("-oD", "--outdomains", help="Output domain names", type=str)
 args = parser.parse_args()
 	
 def screenshot(urls):
@@ -56,12 +58,29 @@ def screenshot(urls):
 	driver.quit()
 	print(bcolors.OK+"[+] "+bcolors.RESET+"done!")
 
+def MatchDomains(urls):
+    	regex = r"^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/?"
+    	matches = re.finditer(regex, urls, re.MULTILINE)
+    	domainList = []
+
+    	for match in matches:
+    		domainList.append(match.group(1))
+    	
+    	NoDuplicate = []
+    	print(bcolors.INFO+"[*] "+bcolors.RESET+"Domains found for "+bcolors.INFO+args.domain+bcolors.RESET)
+    	for domain in domainList:
+    		if domain not in NoDuplicate:
+    			NoDuplicate.append(domain)
+    			print(domain)
+    	return NoDuplicate 
+
+
 def main():
 	url="https://web.archive.org/cdx/search?matchType=domain&collapse=urlkey&output=text&fl=original"
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output]")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output] [-oD Domain names output]")
 		print(bcolors.INFO+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
 		exit(0)
 	else:
@@ -87,6 +106,13 @@ def main():
 		file = args.output
 		log = open(file, "w")
 		log.write(rq.text)
+		log.close()
+	if args.outdomains:
+		file = args.outdomains
+		log = open(file, "w")
+		domains = MatchDomains(rq.text)
+		for domain in domains:
+			log.write(domain+'\n')
 		log.close()
 try:
         main()
