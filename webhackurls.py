@@ -33,6 +33,7 @@ parser.add_argument("-s", "--screenshot", help="take screenshot of each url", ac
 parser.add_argument("-r", "--rate-limit", help="time between two screens", type=float)
 parser.add_argument("-o", "--output", help="Output file name", type=str)
 parser.add_argument("-oD", "--outdomains", help="Output domain names", type=str)
+parser.add_argument("-p", "--proxy", help="send found urls to a proxy (exp: 127.0.0.1:8080)", type=str)
 args = parser.parse_args()
 	
 def screenshot(urls):
@@ -43,6 +44,7 @@ def screenshot(urls):
 	driver.maximize_window()
 	
 	lines=urls.split()
+	print(lines)
 	i=0
 	print(bcolors.OK+"[+] "+bcolors.RESET+"Screening urls...")
 	for url in lines:
@@ -74,13 +76,20 @@ def MatchDomains(urls):
     			print(domain)
     	return NoDuplicate 
 
+def proxy(urls):
+	proxies = {"http":"http://"+args.proxy, "https":"http://"+args.proxy}
+	
+	lines=urls.split()
+	for url in lines:
+		rp = requests.get(url, proxies=proxies, verify=False)
+
 
 def main():
 	url="https://web.archive.org/cdx/search?matchType=domain&collapse=urlkey&output=text&fl=original"
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output] [-s screenshot] [-r rate-limit] [-oD Domain names output]")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output] [-oD Domain names output]")
 		print(bcolors.INFO+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
 		exit(0)
 	else:
@@ -102,6 +111,8 @@ def main():
 
 	if args.screenshot:
 		screenshot(rq.text)
+	if args.proxy:
+		proxy(rq.text)
 	if args.output:
 		file = args.output
 		log = open(file, "w")
