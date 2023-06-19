@@ -17,7 +17,7 @@ $ python3 webhackurls.py
 ```
 ## Usage:
 ```bash
-./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-r] [-p proxy] [-o output] [-oD domain names output]
+./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-r rate-limit] [-p proxy] [-o output] [-oD domain names output]
 ```
 Can be use with other tools for more efficient results
 
@@ -54,6 +54,9 @@ Can be use with other tools for more efficient results
 ![tempsnip](https://user-images.githubusercontent.com/40497633/174833111-6c85556d-ae65-46ba-bed7-15cb71c08143.png)
 
 ![image](https://user-images.githubusercontent.com/40497633/218415209-52ddebb5-979f-450f-802c-2cae2fab1cc8.png)
+
+![image](https://github.com/mathis2001/WebHackUrls/assets/40497633/99f3b366-fce8-4a1f-88a6-8fecba99ed1e)
+
 
 
 
