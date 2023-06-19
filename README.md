@@ -17,7 +17,7 @@ $ python3 webhackurls.py
 ```
 ## Usage:
 ```bash
-./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-r] [-o output] [-oD domain names output]
+./webhackurls.py [-h] -d target.xyz [-k keyword] [-l limit] [-s] [-r] [-p proxy] [-o output] [-oD domain names output]
 ```
 Can be use with other tools for more efficient results
 
@@ -37,6 +37,8 @@ Can be use with other tools for more efficient results
   -s          take screenshot of each url found
   
   -r          delay between two screenshots
+
+  -p          send request for each url to the given proxy (exp: 127.0.0.1:8080)
   
   -o          Output file name
   
