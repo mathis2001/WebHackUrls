@@ -89,7 +89,7 @@ def main():
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-o output] [-oD Domain names output]")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-s screenshot] [-r rate-limit] [-p proxy] [-o output] [-oD Domain names output]")
 		print(bcolors.INFO+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
 		exit(0)
 	else:
