@@ -80,6 +80,7 @@ def proxy(urls):
 	proxies = {"http":"http://"+args.proxy, "https":"http://"+args.proxy}
 	
 	lines=urls.split()
+	print(bcolors.OK+"[+] "+bcolors.RESET+"Sending results in proxy...")
 	for url in lines:
 		rp = requests.get(url, proxies=proxies, verify=False)
 
@@ -89,7 +90,7 @@ def main():
 
 	if len(sys.argv) < 2:
 		print(bcolors.FAIL+"[!] "+bcolors.RESET+"No target given.")
-		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-s screenshot] [-r rate-limit] [-p proxy] [-o output] [-oD Domain names output]")
+		print(bcolors.INFO+"[*] "+bcolors.RESET+"usage: ./webhackurls -d target.com [-k keyword] [-l limit] [-s] [-r rate-limit] [-p proxy] [-o output] [-oD Domain names output]")
 		print(bcolors.INFO+"[*] "+bcolors.RESET+"help: ./webhackurls -h")
 		exit(0)
 	else:
